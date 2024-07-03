@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/OwlCarousel2-2.3.4/src/scss/owl.carousel.scss">
+<link rel="stylesheet" href="OwlCarousel2-2.3.4//src/scss/owl.theme.default.scss">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <style>
+      .custom-select {
+        background-image: url("public/icons/arrowDown.svg"); /* Change this to your icon URL */
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 2.2rem 2.2rem;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Hide the spinners in Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+    /* ToggleButton.css */
+
+.toggle-button {
+  display: flex;
+  position: relative;
+  width: 200px;
+  height: 50px;
+  background-color: #f5f5f5;
+  border-radius: 25px;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.toggle-option {
+  flex: 1;
+  text-align: center;
+  z-index: 1;
+  line-height: 40px;
+  transition: color 0.3s;
+}
+
+.toggle-option.active {
+  color: white;
+}
+
+.toggle-indicator {
+  position: absolute;
+  width: 50%;
+  height: 90%;
+  border-radius: 25px;
+  transition: transform 0.3s ease;
+  background-color: #7d4cdb;
+  z-index: 0;
+}
+
+.toggle-indicator.expense {
+  transform: translateX(0%);
+}
+
+.toggle-indicator.income {
+  transform: translateX(100%);
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+  <script src="/OwlCarousel2-2.3.4/src/js/owl.carousel.js"></script>
+
+</html>
