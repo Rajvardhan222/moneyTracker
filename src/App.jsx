@@ -69,8 +69,8 @@ function App() {
         console.log("wallet list", walletList);
 
       dispatch(addAllWallet(walletList.data.data))
-      let dataOfIncome = await  getIncomeAndExpense(walletList.data.data)
-      dispatch(setIncomeAndExpense(dataOfIncome?.data?.message))
+      // let dataOfIncome = await  getIncomeAndExpense(walletList.data.data)
+      // dispatch(setIncomeAndExpense(dataOfIncome?.data?.message))
       if (walletList.data.data == 0) {
         navigate("/lets-setup");
       }
