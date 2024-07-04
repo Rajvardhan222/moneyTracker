@@ -16,6 +16,8 @@ import Transaction from "@/utils/Transaction";
 import { Loader2Icon } from "lucide-react";
 import { giveBalance } from "@/utils/giveBalance";
 import { motion } from 'framer-motion';
+import { monthsOfTheYear } from "@/utils/month";
+import DateShow from "@/utils/DateShow";
 
 const pageVariants = {
   initial: {
@@ -64,7 +66,9 @@ function Home() {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
     useGetInfiniteTransactions({tillDate :fetchTransactionOfDate[targetSelected],wallets});
  
-
+    let today = new Date();
+   
+    let [month, setMonth] = useState(monthsOfTheYear[new Date(today).getMonth()]);
   let user = useSelector((store) => store.user.isLoggedIn);
   let userInfo = useSelector((store) => store.user.user);
   let dates = ["Today", "Week", "Month", "Year"];
@@ -78,14 +82,18 @@ function Home() {
 
   useEffect(()=>{
   let getIncome=async ()=>{
-    // let walletList = incomeAndExpense?.user?.wallets
-    // let dataOfIncome = await getIncomeAndExpense(walletList?.data?.data);       //gives imcone and expense till today
-    // dispatch(setIncomeAndExpense(dataOfIncome?.data?.message)); 
+    let walletList = await getWalletsByUserId(userInfo?.id);
+    console.log(userInfo);
+    console.log("wallet list", walletList);
+    let dataOfIncome = await getIncomeAndExpense({associatedWalletList: walletList?.data?.data,month});       //gives imcone and expense till month
+
+   
+    dispatch(setIncomeAndExpense(dataOfIncome?.data?.message)); 
 
    
    } // sets the wallet which we have in store 
    getIncome()
-  },[navigate])
+  },[navigate,userInfo])
 
   return (
     <div>
@@ -95,7 +103,7 @@ function Home() {
       exit="out"
       variants={pageVariants}
       transition={pageTransition} className="flex flex-col pb-10 bg-gradient-to-b rounded-bl-3xl rounded-br-3xl from-[#FFF6E5] to-[#f8edd83c] ">
-          <div className="flex w-[90%] m-auto mt-5">
+          <div className="flex w-[90%] justify-between m-auto mt-5">
             <div className="rounded-full  border-blue-500 border-2">
               <img
                 src={userInfo.avatar}
@@ -103,6 +111,7 @@ function Home() {
                 width={40}
               />
             </div>
+            <DateShow month={month} setMonth={setMonth}/>
             
           </div>
           <div className="m-auto mt-4 gap-y-5 flex flex-col">

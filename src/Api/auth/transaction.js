@@ -81,10 +81,11 @@ export const transactionBetweenDate = async ({ pageParam = 0, queryKey }) => {
     return transList;
 }
 
-export const getIncomeAndExpense = async (walletList) => {
+export const getIncomeAndExpense = async ({        associatedWalletList ,month
+}) => {
   
      let incomeandE =await apiClient.post("/transaction/getIncome",{
-        associatedWalletList : walletList
+        associatedWalletList ,month
       })
       console.log(incomeandE);
       return incomeandE
