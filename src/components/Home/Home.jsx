@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import HomeTemplate from "../../utils/HomeTemplate";
 import Select from "../../utils/Select.jsx";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   useGetIncomeAndExpense,
   useGetInfiniteTransactions,
@@ -41,6 +41,7 @@ const pageTransition = {
 };
 
 function Home() {
+  let location = useLocation()
   let dispatch = useDispatch();
   let {
     mutateAsync: getWalletsByUserId,
@@ -79,8 +80,9 @@ function Home() {
       fetchNextPage();
     }
   }, [inView]);
-
+let isLoggedIn = useSelector((store) => store.user.user.isLoggedIn)
   useEffect(()=>{
+ 
   let getIncome=async ()=>{
     let walletList = await getWalletsByUserId(userInfo?.id);
     console.log(userInfo);
@@ -93,7 +95,7 @@ function Home() {
    
    } // sets the wallet which we have in store 
    getIncome()
-  },[navigate,userInfo])
+  },[navigate,userInfo,location])
 
   return (
     <div>
