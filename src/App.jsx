@@ -13,7 +13,7 @@ import { addAllWallet, login } from "./store/userSlice";
 import { setIncomeAndExpense } from "./store/userSlice";
 import LoadingLogo from "./components/Loaders/LoadingLogo";
 import Login from "./components/Login/Login";
-function App() {
+function App({isAuthinticated}) {
 
   let location = useLocation()
   const {

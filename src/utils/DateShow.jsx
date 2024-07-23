@@ -12,7 +12,7 @@ import { monthsOfTheYear } from './month';
 import { useSelector } from 'react-redux';
 import { getMonthRange } from './getMonthRange';
 function DateShow({month,setMonth}) {
-    let createdAt = useSelector((store) => store.user.user.createdAt);
+    let createdAt = useSelector((store) => store?.user?.user?.createdAt);
     let createdAtDate = new Date(createdAt);
   let today = new Date();
   

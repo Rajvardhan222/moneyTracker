@@ -27,6 +27,8 @@ import Wallets from "./components/Wallets.jsx";
 import { AnimatePresence } from "framer-motion";
 import FinancialReport from "./pages/FinancialReport.jsx";
 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
