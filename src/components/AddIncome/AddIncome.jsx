@@ -129,7 +129,7 @@ let {mutateAsync : repeatTransaction,isPending:isRepeating} = useRepeatTransacti
         <div className="mt-32 ml-5 pb-44">
           <p className="text-[#FCFCFC] font-semibold text-lg">How much ?</p>
           <span className="text-5xl font-bold text-white">
-            $
+            ₹
             <input
               className="bg-transparent w-[70%] outline-none "
               type="number"
