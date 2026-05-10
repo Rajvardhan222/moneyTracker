@@ -134,7 +134,7 @@ let {mutateAsync : repeatTransaction,isPending:isRepeating} = useRepeatTransacti
               className="bg-transparent w-[70%] outline-none "
               type="number"
               min={1}
-              max={1000000}
+              max={1000000} // limit of amount that can be added in income
               {...register("amount_add", { max: 1000000 })}
             />
           </span>

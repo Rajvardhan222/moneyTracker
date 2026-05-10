@@ -103,7 +103,7 @@ function App({isAuthinticated}) {
         <LoadingLogo/>
      </div>
 
-     : <div>
+     : <div className="min-h-screen w-full max-w-[391px] mx-auto relative">
         <Outlet />
       </div> 
       }

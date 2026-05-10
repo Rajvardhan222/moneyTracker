@@ -9,7 +9,7 @@ let navigate = useNavigate()
   return (
     <>
       {children}
-      <div className="fixed flex bg-white bottom-0 p-4 justify-around w-full items-center z-40">
+      <div className="fixed left-1/2 -translate-x-1/2 flex bg-white bottom-0 p-4 justify-around w-full max-w-[391px] items-center z-40">
         {navigation.map((nav, index) => {
           return (
             <NavLink
