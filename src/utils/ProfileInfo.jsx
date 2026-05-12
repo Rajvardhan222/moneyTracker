@@ -2,19 +2,19 @@ import React from 'react'
 
 function ProfileInfo({src,name,id}) {
   return (
-    <div className='flex gap-x-7 justify-between items-center'>
-        <div className='flex items-center justify-between gap-x-6'>
-        <div className='rounded-full border-fuchsia-700 border-2 p-1 '>
-            <img src={src} width={100}/>
-        </div>
-        <div className='flex flex-col gap-y-1'>
-            <p className='text-lg font-large text-[#91919F] '>Username</p>
-            <p className='text-3xl font-semibold '>{name}</p>
-        </div>
-        </div>
-        <div>
-            <img src='/icons/edit.svg' />
-        </div>
+    <div className='flex gap-x-7 justify-between items-center bg-white border border-[#EFE7DA] shadow-sm rounded-3xl p-4'>
+      <div className='flex items-center justify-between gap-x-6'>
+      <div className='rounded-full border-fuchsia-700/60 border-2 p-1 bg-white'>
+        <img src={src} width={100}/>
+      </div>
+      <div className='flex flex-col gap-y-1'>
+        <p className='text-lg font-large text-[#91919F] '>Username</p>
+        <p className='text-3xl font-semibold '>{name}</p>
+      </div>
+      </div>
+      <div>
+        <img src='/icons/edit.svg' />
+      </div>
         
     </div>
   )

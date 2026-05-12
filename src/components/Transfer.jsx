@@ -89,12 +89,12 @@ let [error,setError] = useState(null)
           type={"purple"}
         ></BackTexttemplate>
        
-        <div className="mt-32 ml-5 pb-44">
+        <div className="mt-32 ml-5 pb-44 max-w-6xl mx-auto w-full">
           <p className="text-[#FCFCFC] font-semibold text-lg">How much ?</p>
           <span className="text-5xl font-bold text-white">
             ₹
             <input
-              className="bg-transparent w-[70%] outline-none "
+              className="bg-transparent w-[70%] outline-none"
               type="number"
               min={1}
               max={1000000}
@@ -103,8 +103,8 @@ let [error,setError] = useState(null)
           </span>
         </div>
       </div>
-      <div className="relative w-full   bottom-36 bg-white min-h-36 pt-11 m-auto rounded-tl-[2rem] rounded-tr-[2rem]">
-        <div className="w-[90%] flex flex-col gap-y-10 m-auto">
+      <div className="relative w-full bottom-36 bg-white border border-[#EFE7DA] min-h-36 pt-11 m-auto rounded-tl-[2rem] rounded-tr-[2rem] shadow-lg">
+        <div className="w-full max-w-3xl flex flex-col gap-y-10 m-auto px-5">
         {isTransferErr && !isPending&& <p className="text-red-500 font-bold text-xl    text-center ">
             {isTransferErr.message}
           </p>}
@@ -118,7 +118,7 @@ let [error,setError] = useState(null)
               options={walletName}
               placeholder={"From"}
               className={
-                "w-[40%] py-2 px-5 bg-white border-2 border-[##F1F1FA] rounded-2xl appearance-none custom-select"
+                "w-[40%] py-2 px-5 rounded-2xl appearance-none custom-select"
               }
               {...register("from", {
                 required: true,
@@ -132,7 +132,7 @@ let [error,setError] = useState(null)
               options={walletName}
               placeholder={"To"}
               className={
-                "w-[40%] py-2 px-5 bg-white border-2 border-[##F1F1FA] rounded-2xl appearance-none custom-select"
+                "w-[40%] py-2 px-5 rounded-2xl appearance-none custom-select"
               }
               {...register("to", {
                 required: true,

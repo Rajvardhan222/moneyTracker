@@ -23,7 +23,7 @@ function DateShow({month,setMonth}) {
               setMonth(e);
             }}
           >
-            <SelectTrigger className="w-28">
+            <SelectTrigger className="w-28 bg-white border-[#E8DFD0] shadow-sm">
               <SelectValue placeholder="Month" />
             </SelectTrigger>
             <SelectContent>

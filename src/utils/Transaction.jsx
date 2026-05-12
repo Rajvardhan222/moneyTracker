@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { format, isThisYear, isToday } from "date-fns";
 function Transaction({ transactionDetail, key,page }) {
+  const navigate = useNavigate();
   const formatDate = (date) => {
     if (isToday(date)) {
       return format(date, "hh:mm a");
@@ -14,9 +16,10 @@ console.log(transactionDetail);
   return transactionDetail?.map((detail, index) => {
   return  <div
       key={`${page}-${index}`}
-      className="flex justify-between items-center w-[90%] m-auto"
+      className="flex justify-between items-center w-full px-4 sm:px-5 py-3 rounded-2xl bg-white border border-[#EFE7DA] shadow-sm cursor-pointer hover:shadow-md transition-shadow"
+      onClick={() => navigate(`/detail/${detail.id}`)}
     >
-      <div className="flex gap-x-6">
+      <div className="flex gap-x-4 items-center">
         <img src={`/icons/${detail.category}.svg`} />
         <div className="flex flex-col gap-y-2">
           <p className="text-lg font-semibold">{detail.category}</p>

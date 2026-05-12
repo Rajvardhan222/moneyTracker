@@ -122,3 +122,15 @@ export const transferMoney = async ({acc1Id,acc2Id,amount,description}) => {
   return transfer
 
 }
+
+export const getTransactionById = async ({ id }) => {
+  try {
+    let transaction = await apiClient.post("/transaction/transactionById", {
+      id,
+    });
+
+    return transaction;
+  } catch (error) {
+    console.log(error);
+  }
+};

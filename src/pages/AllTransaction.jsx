@@ -118,8 +118,8 @@ function AllTransaction() {
       animate="in"
       exit="out"
       variants={pageVariants}
-      transition={pageTransition} className="flex flex-col w-full">
-        <div className="flex  items-center justify-between m-auto py-4 w-[90%] ">
+      transition={pageTransition} className="flex flex-col w-full max-w-6xl mx-auto">
+        <div className="flex items-center justify-between py-4 w-full bg-white border border-[#EFE7DA] rounded-2xl px-4 shadow-sm">
           <div>
             <Select
               value={month}
@@ -127,7 +127,7 @@ function AllTransaction() {
                 setmonth(e);
               }}
             >
-              <SelectTrigger className="w-28">
+              <SelectTrigger className="w-28 bg-white border-[#E8DFD0] shadow-sm">
                 <SelectValue placeholder="Month" />
               </SelectTrigger>
               <SelectContent>
@@ -146,7 +146,7 @@ function AllTransaction() {
               </SelectContent>
             </Select>
           </div>
-          <div className="p-2 border border-[#F1F1FA] rounded-2xl  shadow-sm ">
+          <div className="p-2 border border-[#E8DFD0] bg-white rounded-2xl shadow-sm">
             <Drawer>
               <DrawerTrigger>
                 <img src="/icons/filter.svg" />
@@ -239,12 +239,12 @@ function AllTransaction() {
             </Drawer>
           </div>
         </div>
-          <div className="flex cursor-pointer justify-between items-center bg-[#EEE5FF] py-4 px-2 w-[90%] m-auto mb-6 rounded-2xl text-[#7F3DFF]" onClick={()=>navigate('/financial-report')}>
+          <div className="flex cursor-pointer justify-between items-center bg-[#EEE5FF] py-4 px-4 w-full mb-6 rounded-2xl text-[#7F3DFF] border border-[#DCCBFF] shadow-sm" onClick={()=>navigate('/financial-report')}>
             <p className="text-lg ml-5">See your financial report</p>
             <img src="/icons/rightArrow.svg"/>
 
           </div>
-        <div className="flex mb-24 flex-col gap-y-4">
+        <div className="grid mb-24 gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {data?.pages?.map((detail, index) => {
             console.log(detail?.data?.data);
             return (

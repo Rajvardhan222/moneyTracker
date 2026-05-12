@@ -11,7 +11,7 @@ function LoginSignup() {
     slidesToScroll: 1,
   };
   return (
-    <div className="w-[90%] m-auto mt-10  flex flex-col gap-y-16 mb-8">
+    <div className="w-full max-w-4xl mx-auto mt-10 flex flex-col gap-y-16 mb-8 bg-white border border-[#EFE7DA] rounded-3xl shadow-sm p-6">
       <Slider {...settings}>
         <div>
           <div className="flex flex-col justify-center items-center gap-y-6 mb-3">
@@ -59,8 +59,8 @@ function LoginSignup() {
       
       </Slider>
       <div className="flex flex-col gap-y-8 items-center">
-        <button className="bg-[#7F3DFF] w-72 rounded-2xl text-white font-bold px-5 py-3">SignUp</button>
-        <button className="bg-[#EEE5FF] font-bold text-[#7F3DFF] w-72 rounded-2xl px-5 py-3">Login</button>
+        <button className="bg-[#7F3DFF] w-72 rounded-2xl text-white font-bold px-5 py-3 border border-[#6F2FE8] shadow-md">SignUp</button>
+        <button className="bg-[#EEE5FF] font-bold text-[#7F3DFF] w-72 rounded-2xl px-5 py-3 border border-[#DCCBFF] shadow-sm">Login</button>
       </div>
     </div>
   );

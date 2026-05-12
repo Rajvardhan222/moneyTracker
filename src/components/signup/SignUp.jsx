@@ -44,7 +44,7 @@ function SignUp() {
     <>
      
       <BackTexttemplate header={'Sign Up'}>
-      <div className="mt-16">
+      <div className="mt-10 w-full max-w-md mx-auto bg-white border border-[#EFE7DA] rounded-3xl shadow-sm p-6">
         <form
           onSubmit={handleSubmit(submit)}
           className="flex flex-col items-center justify-center gap-y-10"
@@ -60,7 +60,7 @@ function SignUp() {
             placeholder={"Email"}
             {...register("Email", { required: true })}
           />
-          <div className="flex border-2 rounded-2xl">
+          <div className="flex border border-[#E8DFD0] bg-white rounded-2xl w-full shadow-sm">
             <Input
               type={isPassword}
               className="border-none"
@@ -72,7 +72,7 @@ function SignUp() {
           <input
             type="submit"
             disabled = {isRegestring}
-            className={` w-[90%] rounded-2xl text-white font-semibold text-lg px-6 py-5 ${isRegestring ? "bg-[#361970] " : "bg-[#7F3DFF]"}`}
+            className={`w-full rounded-2xl text-white font-semibold text-lg px-6 py-4 shadow-md border ${isRegestring ? "bg-[#361970] border-[#361970]" : "bg-[#7F3DFF] border-[#6F2FE8]"}`}
             value={"Sign Up"}
           />
           

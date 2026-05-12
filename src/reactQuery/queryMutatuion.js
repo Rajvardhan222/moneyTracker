@@ -1,4 +1,4 @@
-import {  addExpense, addIncome, filterTransaction, getIncomeAndExpense, repeatTransaction, transactionBetweenDate, transferMoney } from "@/Api/auth/transaction";
+import {  addExpense, addIncome, filterTransaction, getIncomeAndExpense, repeatTransaction, transactionBetweenDate, transferMoney, getTransactionById } from "@/Api/auth/transaction";
 import { loginUser, refreshAccessTOken, regesterUser, regesterUserOtp, verifyAccessTOken } from "@/Api/auth/user";
 import { createWallet, getWalletbyUserId } from "@/Api/auth/wallet";
 import AddExpense from "@/components/Addexpense/AddExpense";
@@ -91,6 +91,12 @@ export const useTransferMoney = ()=>{
 export const useGetIncomeAndExpense = ()=>{
     return useMutation({
         mutationFn : (id) => getIncomeAndExpense(id)
+    })
+}
+
+export const useGetTransactionByIdMutation = () => {
+    return useMutation({
+        mutationFn: (id) => getTransactionById(id),
     })
 }
 

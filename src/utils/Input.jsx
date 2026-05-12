@@ -7,7 +7,8 @@ let Input=({ placeholder, type, className = "" ,...props}, ref)=> {
       placeholder={placeholder}
       ref={ref}
       minLength={3}
-      className={`outline-none px-9 py-4 border-2 font-medium text-xl w-[80%] border-[#F1F1FA] rounded-2xl ${className}` } {...props}
+      className={`outline-none px-5 py-3 border font-medium text-base w-full bg-white border-[#E8DFD0] rounded-2xl shadow-sm ${className}`}
+      {...props}
     />
   );
 }

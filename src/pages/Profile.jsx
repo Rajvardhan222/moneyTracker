@@ -75,22 +75,22 @@ function Profile() {
       animate="in"
       exit="out"
       variants={pageVariants}
-      transition={pageTransition} className="flex flex-col gap-y-5 ">
-      <div className="w-[90%] m-auto mt-8">
+      transition={pageTransition} className="flex flex-col gap-y-5 w-full max-w-6xl mx-auto">
+      <div className="w-full mt-8">
 
         <ProfileInfo src={profileDetail.avatar} name={profileDetail.name}/>
       </div>
-     <div className="flex flex-col w-[90%] m-auto rounded-3xl bg-[#ffffff] shadow-lg px-4 py-3 gap-y-5">
+    <div className="flex flex-col w-full rounded-3xl bg-white border border-[#EFE7DA] shadow-lg px-4 py-3 gap-y-5">
         {
           settings.map((item, index) => (
-            <div key={index} className={`flex items-center w-full px-2 cursor-pointer  gap-x-5 py-2 ${index !== 2 ? "border-b-[1px]" : ""}`} onClick={()=>navigate(item.path)}>
+            <div key={index} className={`flex items-center w-full px-2 cursor-pointer gap-x-5 py-3 ${index !== 2 ? "border-b border-[#EFE7DA]" : ""}`} onClick={()=>navigate(item.path)}>
               <img src={item.icon} alt={item.title} />
               <p>{item.title}</p>
             </div>
           ))
         } 
          <Drawer>
-  <DrawerTrigger><div className={`flex items-center w-full px-2 cursor-pointer  gap-x-5 py-2`} >
+  <DrawerTrigger><div className={`flex items-center w-full px-2 cursor-pointer gap-x-5 py-3`} >
               <img src={"/icons/logout.svg"} alt={'logout'} />
               <p>logout</p>
             </div></DrawerTrigger>

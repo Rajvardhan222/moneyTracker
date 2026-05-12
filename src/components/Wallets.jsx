@@ -39,13 +39,13 @@ function Wallets() {
   let navigate = useNavigate();
   return (
     <BackTexttemplate header={"Account"}>
-      <motion.dev initial="initial"
+      <motion.div initial="initial"
       animate="in"
       exit="out"
       variants={pageVariants}
-      transition={pageTransition} className="flex flex-col">
+      transition={pageTransition} className="flex flex-col w-full max-w-6xl mx-auto">
         <div
-          className="w-full h-60 flex flex-col justify-center items-center"
+          className="w-full h-60 flex flex-col justify-center items-center rounded-3xl bg-white border border-[#EFE7DA] shadow-sm"
           style={divStyle}
         >
           <p className="font-semibold text-lg text-[#91919F] ">
@@ -53,7 +53,7 @@ function Wallets() {
           </p>
           <p className="text-5xl font-bold">₹{balance}</p>
         </div>
-        <div className="flex flex-col gap-y-5 py-3 w-[90%] m-auto ">
+        <div className="flex flex-col gap-y-5 py-4 w-full">
           {walletList.map((item, index) => (
             <WalletShow name={item.name} amount={item.balance} key={index} />
           ))}
@@ -62,12 +62,12 @@ function Wallets() {
           )}
         </div>
         <ThemeButton
-          className="mt-10 w-[80%] m-auto "
+          className="mt-10 w-full max-w-md m-auto"
           onClick={() => navigate("/create-new-wallet")}
         >
           + Add new wallet
         </ThemeButton>
-      </motion.dev>
+      </motion.div>
     </BackTexttemplate>
   );
 }

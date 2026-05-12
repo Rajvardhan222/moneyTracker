@@ -94,7 +94,7 @@ function FinancialReport() {
         exit="out"
         variants={pageVariants}
         transition={pageTransition}
-        className="flex flex-col w-[90%] m-auto "
+        className="flex flex-col w-full max-w-6xl mx-auto "
       >
         <div className="flex justify-start">
           <Select
@@ -103,7 +103,7 @@ function FinancialReport() {
               setMonth(e);
             }}
           >
-            <SelectTrigger className="w-28">
+            <SelectTrigger className="w-28 bg-white border-[#E8DFD0] shadow-sm">
               <SelectValue placeholder="Month" />
             </SelectTrigger>
             <SelectContent>
@@ -118,7 +118,7 @@ function FinancialReport() {
         </div>
 
         {/* Pie chart for financial report */}
-        <div className="w-full h-[24rem]">
+        <div className="w-full h-[24rem] mt-4 bg-white border border-[#EFE7DA] rounded-3xl shadow-sm p-4">
           {/* TODO: Implement pie chart */}
 
           <MyResponsivePie

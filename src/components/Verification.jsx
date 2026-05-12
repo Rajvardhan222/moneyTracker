@@ -42,8 +42,8 @@ let maskEmail = (email) => {
   return (
     <>
     <BackTexttemplate type={''} header={'Verification'}>
-        <div className='mt-10 flex flex-col gap-y-14'>
-            <h1 className='text-4xl w-[90%] font-semibold m-auto'>
+      <div className='mt-10 flex flex-col gap-y-10 w-full max-w-3xl mx-auto bg-white border border-[#EFE7DA] rounded-3xl shadow-sm p-6'>
+        <h1 className='text-3xl sm:text-4xl w-full font-semibold m-auto'>
             Enter your Verification Code
             </h1>
         <OtpInput 
@@ -51,16 +51,16 @@ let maskEmail = (email) => {
       onChange={setOtp}
       numInputs={4}
       renderSeparator={<span></span>}
-      renderInput={(props) => (<input {...props}  className=' h-16 min-w-14  mx-4 border-2 border-black rounded-lg  text-black text-2xl font-medium outline-none'/>)}
+      renderInput={(props) => (<input {...props}  className='h-16 min-w-14 mx-2 sm:mx-4 border border-[#E8DFD0] bg-white rounded-xl text-black text-2xl font-medium outline-none shadow-sm'/>)}
     />
         </div>
-        <div className='w-[90%] m-auto mt-5 font-semibold text-md'>
+      <div className='w-full max-w-3xl mx-auto mt-5 font-semibold text-md'>
         We send verification code to your
 email <span className='text-[#7F3DFF]'>{maskEmail(email)}</span>. You can
 check your inbox
         </div>
-        <div className='flex justify-center mt-6'>
-        <button className="bg-[#7F3DFF] font-bold text-white  rounded-2xl px-32 py-3 " onClick={()=> submit()}>Verify</button></div>
+      <div className='flex justify-center mt-6'>
+      <button className="bg-[#7F3DFF] font-bold text-white rounded-2xl px-10 sm:px-32 py-3 border border-[#6F2FE8] shadow-md" onClick={()=> submit()}>Verify</button></div>
     </BackTexttemplate>
     </>
   )

@@ -3,7 +3,11 @@ import {forwardRef } from 'react'
 function Select({placeholder, options,className, ...props},ref) {
   return (
     <>
-        <select ref={ref} className={`${className} `} {...props}>
+        <select
+          ref={ref}
+          className={`${className} bg-white border border-[#E8DFD0] shadow-sm text-base`}
+          {...props}
+        >
             <option disabled = {true} selected>{placeholder}</option>
                { options.map((option,index) => {
                     return (

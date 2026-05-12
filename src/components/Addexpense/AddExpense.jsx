@@ -128,12 +128,12 @@ let addIncomeToWallet
           header={"Create New Wallet"}
           type={"purple"}
         ></BackTexttemplate>
-        <div className="mt-32 ml-5 pb-44">
+        <div className="mt-32 ml-5 pb-44 max-w-6xl mx-auto w-full">
           <p className="text-[#FCFCFC] font-semibold text-lg">How much ?</p>
           <span className="text-5xl font-bold text-white">
             ₹
             <input
-              className="bg-transparent w-[70%] outline-none "
+              className="bg-transparent w-[70%] outline-none"
             
               type="number"
               min={1}
@@ -143,13 +143,13 @@ let addIncomeToWallet
           </span>
         </div>
       </div>
-      <div className="relative w-full  bottom-36 bg-white min-h-36 pt-11 rounded-tl-[2rem] rounded-tr-[2rem]">
-        <div className=" m-auto w-[90%] flex flex-col gap-y-10">
+      <div className="relative w-full bottom-36 bg-white border border-[#EFE7DA] min-h-36 pt-11 rounded-tl-[2rem] rounded-tr-[2rem] shadow-lg">
+        <div className="m-auto w-full max-w-3xl flex flex-col gap-y-10 px-5">
         <Select
             options={category}
             placeholder={"Expense Type"}
             className={
-              "w-[90%] py-5 px-5 bg-white border-2 border-[##F1F1FA] rounded-2xl appearance-none custom-select"
+              "w-full py-5 px-5 rounded-2xl appearance-none custom-select"
             }
             {...register("Category", {
               required: true,
@@ -165,7 +165,7 @@ let addIncomeToWallet
             options={walletName}
             placeholder={"Wallets"}
             className={
-              "w-[90%] py-5 px-5 bg-white border-2 border-[##F1F1FA] rounded-2xl appearance-none custom-select"
+              "w-full py-5 px-5 rounded-2xl appearance-none custom-select"
             }
             {...register("Wallet", {
               required: true,
@@ -196,7 +196,7 @@ let addIncomeToWallet
                 <Select
                   options={["D","W","M","Y"]}
                   className={
-                    "w-[50%] py-2 px-5 bg-white border-2 border-[##F1F1FA] rounded-2xl appearance-none custom-select"
+                    "w-[50%] py-2 px-5 rounded-2xl appearance-none custom-select"
                   }
                   {...register("repeatFrequency", { required: true })}
                 />

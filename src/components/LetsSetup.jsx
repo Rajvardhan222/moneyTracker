@@ -5,17 +5,20 @@ import { Navigate, useNavigate } from 'react-router-dom'
 function LetsSetup() {
   let navigate = useNavigate()
   return (
-    <div className='h-[90%] w-full'>
-        <h1 className='font-semibold text-5xl mt-7  ml-3'>
-        Let’s setup your account!
-        </h1>
+    <div className='min-h-[90%] w-full flex items-center justify-center'>
+        <div className='w-full max-w-3xl bg-white border border-[#EFE7DA] rounded-3xl shadow-sm p-8'>
+          <h1 className='font-semibold text-4xl sm:text-5xl'>
+          Let’s setup your account!
+          </h1>
 
-        <p className=' ml-4 mt-10 w-[80%] '>
-        Account can be your bank, credit card or 
-        your wallet.
-        </p>
-<div className='m-auto w-[85%] mt-96'>
-        <ThemeButton onClick={()=>navigate('/create-new-wallet')} >Let&apos;s go</ThemeButton></div>
+          <p className='mt-6 text-[#4A4A4A]'>
+          Account can be your bank, credit card or 
+          your wallet.
+          </p>
+          <div className='mt-10'>
+            <ThemeButton onClick={()=>navigate('/create-new-wallet')} >Let&apos;s go</ThemeButton>
+          </div>
+        </div>
     </div>
   )
 }

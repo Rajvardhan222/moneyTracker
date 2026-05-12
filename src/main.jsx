@@ -26,6 +26,7 @@ import Transfer from "./components/Transfer.jsx";
 import Wallets from "./components/Wallets.jsx";
 import { AnimatePresence } from "framer-motion";
 import FinancialReport from "./pages/FinancialReport.jsx";
+import TransactionDetail from "./pages/TransactionDetail.jsx";
 
 
 
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
       {
         path : "/financial-report",
         element : <FinancialReport/>,
+      }
+      ,{
+        path : "/detail/:id",
+        element : <TransactionDetail/>,
       }
     ],
   },

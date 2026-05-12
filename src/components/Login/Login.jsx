@@ -70,7 +70,7 @@ function Login() {
   return (
     <>
       <BackTexttemplate header={"login"}>
-        <div className="mt-16">
+        <div className="mt-10 w-full max-w-md mx-auto bg-white border border-[#EFE7DA] rounded-3xl shadow-sm p-6">
           <form
             className="flex flex-col gap-y-5 justify-center items-center"
             onSubmit={handleSubmit(login)}
@@ -85,10 +85,10 @@ function Login() {
               type={"email"}
               {...register("email", { required: "true" })}
             ></Input>
-            <div className="flex border-2 rounded-2xl w-[80%]">
+            <div className="flex border border-[#E8DFD0] bg-white rounded-2xl w-full shadow-sm">
               <Input
                 type={isPassword}
-                className="border-none w-0%]"
+                className="border-none"
                 placeholder={"Password"}
                 {...register("password", { required: true })}
               />
@@ -100,8 +100,8 @@ function Login() {
             </div>
             <input
               type="submit"
-              className={` w-[90%] rounded-2xl text-white font-semibold text-lg px-6 py-5 ${
-                isPending ? "bg-[#401e82]" : "bg-[#7F3DFF]"
+              className={`w-full rounded-2xl text-white font-semibold text-lg px-6 py-4 shadow-md border ${
+                isPending ? "bg-[#401e82] border-[#401e82]" : "bg-[#7F3DFF] border-[#6F2FE8]"
               }`}
               value={"Sign Up"}
             />
