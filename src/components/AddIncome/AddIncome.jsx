@@ -140,7 +140,7 @@ let {mutateAsync : repeatTransaction,isPending:isRepeating} = useRepeatTransacti
           </span>
         </div>
       </div>
-      <div className="relative w-full bottom-36 bg-white border border-[#EFE7DA] min-h-36 pt-11 rounded-tl-[2rem] rounded-tr-[2rem] shadow-lg">
+      <div className="relative w-full bottom-36 bg-white border border-[#EFE7DA] min-h-36 pt-11 rounded-[2rem] shadow-lg">
         <div className="m-auto w-full max-w-3xl flex flex-col gap-y-10 px-5">
           <Select
             options={category}
@@ -211,7 +211,9 @@ let {mutateAsync : repeatTransaction,isPending:isRepeating} = useRepeatTransacti
             </div>
           )}
 
-          <ThemeButton isPending={isAddingINcome} type="submit">Continue</ThemeButton>
+          <div className="mt-4 mb-4">
+            <ThemeButton isPending={isAddingINcome} type="submit">Continue</ThemeButton>
+          </div>
         </div>
       </div>
     </motion.form>

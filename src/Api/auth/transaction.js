@@ -134,3 +134,15 @@ export const getTransactionById = async ({ id }) => {
     console.log(error);
   }
 };
+
+export const getTransactionHistory = async ({ wallets }) => {
+  try {
+    let history = await apiClient.post("/transaction/getHistory", {
+      wallets,
+    });
+
+    return history;
+  } catch (error) {
+    console.log(error);
+  }
+};

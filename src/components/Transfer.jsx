@@ -103,8 +103,8 @@ let [error,setError] = useState(null)
           </span>
         </div>
       </div>
-      <div className="relative w-full bottom-36 bg-white border border-[#EFE7DA] min-h-36 pt-11 m-auto rounded-tl-[2rem] rounded-tr-[2rem] shadow-lg">
-        <div className="w-full max-w-3xl flex flex-col gap-y-10 m-auto px-5">
+      <div className="relative w-full bottom-36 bg-white border border-[#EFE7DA] min-h-36 pt-11 pb-12 m-auto rounded-[2rem] shadow-lg">
+        <div className="w-full max-w-3xl flex flex-col gap-y-10 m-auto px-5 pb-6">
         {isTransferErr && !isPending&& <p className="text-red-500 font-bold text-xl    text-center ">
             {isTransferErr.message}
           </p>}
@@ -150,7 +150,9 @@ let [error,setError] = useState(null)
               })}
             />
           </div>
-        <ThemeButton type="submit" isPending={isPending}>Continue</ThemeButton>
+        <div className="mt-4 mb-4">
+          <ThemeButton type="submit" isPending={isPending}>Continue</ThemeButton>
+        </div>
         </div>
 
       </div>

@@ -143,8 +143,8 @@ let addIncomeToWallet
           </span>
         </div>
       </div>
-      <div className="relative w-full bottom-36 bg-white border border-[#EFE7DA] min-h-36 pt-11 rounded-tl-[2rem] rounded-tr-[2rem] shadow-lg">
-        <div className="m-auto w-full max-w-3xl flex flex-col gap-y-10 px-5">
+      <div className="relative w-full bottom-36 bg-white border border-[#EFE7DA] min-h-36 pt-11 pb-12 rounded-[2rem] shadow-lg">
+        <div className="m-auto w-full max-w-3xl flex flex-col gap-y-10 px-5 pb-6">
         <Select
             options={category}
             placeholder={"Expense Type"}
@@ -214,7 +214,9 @@ let addIncomeToWallet
             </div>
           )}
 
-          <ThemeButton isPending={isAddingExpense} type="submit">Continue</ThemeButton>
+          <div className="mt-4 mb-4">
+            <ThemeButton isPending={isAddingExpense} type="submit">Continue</ThemeButton>
+          </div>
         </div>
       </div>
     </motion.form>

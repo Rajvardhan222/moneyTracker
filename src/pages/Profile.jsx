@@ -18,6 +18,8 @@ import ThemeButton from "@/utils/ThemeButton";
 import { logout } from "@/Api/auth/user";
 import { logoutUser } from "@/store/userSlice";
 import { AnimatePresence, motion } from 'framer-motion';
+import * as XLSX from "xlsx";
+import { useGetTransactionHistoryMutation } from "@/reactQuery/queryMutatuion";
 
 const pageVariants = {
   initial: {
@@ -56,6 +58,9 @@ function Profile() {
   ]
   
   let profileDetail = useSelector(store => store?.user?.user)
+  let userWallets = useSelector(store => store?.user?.user?.wallets || [])
+  const { mutateAsync: getHistory, isPending: isDownloading } =
+    useGetTransactionHistoryMutation();
 
   let navigate = useNavigate()
   let dispatch = useDispatch()
@@ -67,6 +72,36 @@ function Profile() {
     }
    }
    let location = useLocation()
+  const downloadHistory = async () => {
+    const response = await getHistory({ wallets: userWallets });
+    const historyData = response?.data?.message || {};
+    const transactions = historyData?.transactions || [];
+    const wallets = historyData?.wallets || userWallets || [];
+    const walletMap = new Map(
+      wallets.map((wallet) => [wallet.id, wallet.name || `Wallet ${wallet.id}`])
+    );
+
+    const rows = transactions.map((item) => ({
+      id: item.id,
+      type: item.type === "E" ? "Expense" : "Income",
+      amount: item.amount,
+      category: item.category,
+      description: item.description,
+      createdAt: item.createdAt,
+      updatedAt: item.updatedAt,
+      associatedWallet: walletMap.get(item.associatedWallet) || item.associatedWallet,
+      repeat: item.repeat ? "Yes" : "No",
+      repeatFrequency: item.repeatFrequency || "",
+      endAfterFrequency: item.endAfterFrequency || "",
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(rows);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Transactions");
+    const filename = `transaction-history-${new Date().toISOString().slice(0, 10)}.xlsx`;
+    XLSX.writeFile(workbook, filename);
+  };
+
   return (
     
     <HomeTemplate>
@@ -83,9 +118,19 @@ function Profile() {
     <div className="flex flex-col w-full rounded-3xl bg-white border border-[#EFE7DA] shadow-lg px-4 py-3 gap-y-5">
         {
           settings.map((item, index) => (
-            <div key={index} className={`flex items-center w-full px-2 cursor-pointer gap-x-5 py-3 ${index !== 2 ? "border-b border-[#EFE7DA]" : ""}`} onClick={()=>navigate(item.path)}>
+            <div
+              key={index}
+              className={`flex items-center w-full px-2 cursor-pointer gap-x-5 py-3 ${index !== 2 ? "border-b border-[#EFE7DA]" : ""}`}
+              onClick={() => {
+                if (item.title === "Export") {
+                  downloadHistory();
+                } else {
+                  navigate(item.path);
+                }
+              }}
+            >
               <img src={item.icon} alt={item.title} />
-              <p>{item.title}</p>
+              <p>{item.title}{item.title === "Export" && isDownloading ? " (downloading...)" : ""}</p>
             </div>
           ))
         } 
